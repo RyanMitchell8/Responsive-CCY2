@@ -1,0 +1,39 @@
+@import"../node_modules/bootstrap/scss/functions";
+
+
+$primary: green;
+
+$secondary: purple;
+
+$enable-rounded: false;
+
+
+
+@import"../node_modules/bootstrap/scss/variables";
+@import"../node_modules/bootstrap/scss/mixins";
+
+$custom-colors: (
+    "tertiary": orange,
+    "tertiary-light": rgb(233, 198, 134),
+    "tertiary-dark": rgb(196, 129, 6)
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors );
+
+@each $color, $value in $colors{
+    .bg-#{$color}{
+        background-color: $value
+    }
+
+    .bg-#{$color}-light{
+        background-color: tint-color($value, 60%)
+    }
+
+    .bg-#{$color}-dark{
+        background-color: tint-color($value, 20%)
+    }
+};
+
+
+//always keep this file at end of the page.
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
